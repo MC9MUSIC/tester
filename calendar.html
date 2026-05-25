@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>calendar of Snow Cone</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Adove Express Practice">
+		<meta name="keywords" content="Snow Cones, Breaking Bad, Ice, Treats">
+		<meta name="author" content="Manuel Segnini">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="refresh" content="200">
+		<link rel="icon" type="image/png" href="images/favicon2.png">
+		<link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+		<style>
+			*{
+				margin:0;
+				max-width: 100%;
+				}
+			header{
+				height: 200px;
+				display: flex;
+				width: 100%;
+				background-image: linear-gradient(0deg,#f7a654, #f7b0eb,#2ebdff);
+				border-left: solid 5px #423;
+				border-right: solid 5px #420218;
+				border-top: solid 5px #423218;
+				box-sizing: border-box;
+				}
+			#logo{
+				height: 100%;
+				width: 20%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+				}
+			#mainlogo{
+				max-height: 180px;
+				width: auto;
+				}
+			nav{
+				height: 200px;
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				width: 70%;
+				border-bottom: solid 5px #423218;
+				}
+			#signuplogin{
+				height: 200px;
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				width: 20%;
+				border-bottom: solid 5px #423218;
+				}
+			main{
+				min-height: 800px;
+				border-right: solid 5px #423218;
+				border-left: solid 5px #423218;
+				width: 100%;
+				border-bottom: 0px;
+				border-top: 0px;
+				background-image: linear-gradient(0deg,#f7a654, #f7b0eb,#2ebdff);
+				box-sizing: border-box;
+				padding: 40px;
+				}
+			footer{
+				display: flex;
+				height: 125px;
+				width: 100%;
+				background-color:#f7a654;
+				box-sizing: border-box;
+				border: solid 5px #423218;
+				}
+			#smcontainer{
+				height: 125px;
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				border-radius: 50px;
+				width: 8%;
+				}
+			#sm{
+				max-height:83px;
+				max-width:83px;
+				border-radius: 42px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				}
+			#legallinks{
+				height: 125px;
+				border-left: solid 0px #423218;
+				width: 45%;
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				}
+			#icons{
+				border-radius: 100px;
+				border: solid 5px #2ebdff;
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				transition-delay: .2s;
+				transition: 1s;
+				}
+			#icons:hover{
+				border: solid 5px #f7b0eb;
+				transition: 0.4s;
+				box-sizing: border-box;
+				}
+			#legal{
+				color: #423218;
+				text-decoration: none;
+				justify-content: center;
+				align-items: left;
+				display: flex;
+				}
+			#navigation{
+				color: black;
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				height: 75px;
+				width: 130px;
+				text-decoration: none;
+				font-size: 15px;
+				font-family: 'Ultra';
+				border-radius: 15px;
+				background-color: #fab514;
+				}
+			#navigation:hover{
+				background-color: #fbde06;
+				transition: .7s;
+				transition-timing-function: ease-in-out;
+				transition-delay: .2s;
+				}
+			#signup{
+				height: 43px;
+				width: 100px;
+				border: solid 2px black;
+				background-color: #209ef7;
+				color: #423218;
+				border-radius: 25px;
+				margin: 10px;
+				text-decoration: none;
+				transition: .4s;
+				}
+			#signup:hover{
+				height:43px;
+				width: 115px;
+				transition: .4s;
+				margin: 2.7px;
+				transition-delay: .1s;
+				}
+			#login{
+				height: 43px;
+				width: 100px;
+				border: solid 2px black;
+				background-color: #676767;
+				color: #fbd00b;
+				border-radius: 25px;
+				margin: 10px;
+				text-decoration: none;
+				transition: .4s;
+				}
+			#login:hover{
+				height:43px;
+				width: 115px;
+				transition: .4s;
+				margin: 2.7px;
+				transition-delay: .1s;
+				}
+			#textdecorationlogin{
+				text-decoration: none;
+				color: #ffe184;
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				}
+			#textdecorationsignup{
+				text-decoration: none;
+				color: #423218;
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				}
+			marquee{
+				font-family: 'Ultra';
+				font-size: 20px;
+				}
+
+			/* ── Calendar Page Styles ── */
+			h1{
+				font-family: 'Ultra';
+				font-size: 50px;
+				color: #2c597a;
+				text-align: center;
+				margin-bottom: 30px;
+				}
+
+			.content-wrapper{
+				display: flex;
+				gap: 40px;
+				justify-content: center;
+				align-items: flex-start;
+				flex-wrap: wrap;
+				}
+
+			/* Booked Dates Box */
+			.booked-dates{
+				background-color: rgba(0, 0, 0, 0.15);
+				border: solid 3px #423218;
+				border-radius: 15px;
+				padding: 25px;
+				width: 350px;
+				}
+
+			.booked-dates h2{
+				font-family: 'Ultra';
+				font-size: 22px;
+				color: #423218;
+				margin-bottom: 15px;
+				text-align: center;
+				}
+
+			.booked-dates table{
+				width: 100%;
+				border-collapse: collapse;
+				font-family: verdana;
+				font-size: 14px;
+				}
+
+			.booked-dates table th{
+				background-color: #fab514;
+				color: #423218;
+				padding: 8px;
+				border: solid 2px #423218;
+				}
+
+			.booked-dates table td{
+				padding: 8px;
+				border: solid 2px #423218;
+				background-color: rgba(255, 255, 255, 0.4);
+				color: #423218;
+				text-align: center;
+				}
+
+			.booked-dates table tr:nth-child(even) td{
+				background-color: rgba(255, 255, 255, 0.2);
+				}
+
+			.booked-tag{
+				background-color: #f7b0eb;
+				border-radius: 8px;
+				padding: 2px 8px;
+				font-size: 12px;
+				font-weight: bold;
+				color: #423218;
+				}
+
+			/* Booking Form */
+			.booking-form{
+				background-color: rgba(0, 0, 0, 0.15);
+				border: solid 3px #423218;
+				border-radius: 15px;
+				padding: 25px;
+				width: 350px;
+				}
+
+			.booking-form h2{
+				font-family: 'Ultra';
+				font-size: 22px;
+				color: #423218;
+				margin-bottom: 20px;
+				text-align: center;
+				}
+
+			.booking-form form{
+				display: flex;
+				flex-direction: column;
+				gap: 15px;
+				max-width: 100%;
+				}
+
+			.booking-form label{
+				font-family: verdana;
+				font-size: 13px;
+				color: #423218;
+				font-weight: bold;
+				display: block;
+				margin-bottom: 4px;
+				}
+
+			.booking-form input,
+			.booking-form select,
+			.booking-form textarea{
+				width: 100%;
+				padding: 8px 12px;
+				border: solid 2px #423218;
+				border-radius: 10px;
+				font-family: verdana;
+				font-size: 13px;
+				background-color: rgba(255, 255, 255, 0.7);
+				color: #423218;
+				box-sizing: border-box;
+				}
+
+			.booking-form textarea{
+				height: 80px;
+				resize: vertical;
+				}
+
+			.booking-form input:focus,
+			.booking-form select:focus,
+			.booking-form textarea:focus{
+				outline: none;
+				border-color: #209ef7;
+				background-color: rgba(255, 255, 255, 0.9);
+				}
+
+			.submit-btn{
+				background-color: #fab514;
+				color: #423218;
+				border: solid 2px #423218;
+				border-radius: 25px;
+				padding: 10px;
+				font-family: 'Ultra';
+				font-size: 16px;
+				cursor: pointer;
+				transition: .4s;
+				width: 100%;
+				}
+
+			.submit-btn:hover{
+				background-color: #fbde06;
+				transition: .4s;
+				}
+			h1{
+			font-size: 80px; 
+			font-family: 'Ultra';
+			margin-bottom: 15px; 
+			color:#2c597a;
+			justify-content: center;
+			align-items: center;
+			display: flex;
+			}
+			.fade-in {
+				  opacity: 0;
+				  animation: fadeIn 0.5s ease-in forwards;
+				}
+			@keyframes fadeIn {
+				  to {
+					opacity: 1;
+				  }
+				}
+		</style>
+	</head>
+	<body>
+
+		<header>
+			<div id="logo">
+				<a href="index.html">
+					<img src="images/secondary.png" id="mainlogo">
+				</a>
+			</div>
+			<nav>
+				<a href="menu.html" id="navigation">Menu</a>&nbsp;&nbsp;
+				<a href="calendar.html" id="navigation">Calendar</a>&nbsp;&nbsp;
+				<a href="contact.html" id="navigation">Contact Us</a>&nbsp;&nbsp;
+			</nav>
+			<div id="signuplogin">
+				<button id="signup">
+					<a href="#" id="textdecorationsignup">Sign Up</a>
+				</button>
+				<button id="login">
+					<a href="#" id="textdecorationlogin">Log In</a>
+				</button>
+			</div>
+		</header>
+
+		<main>
+			<marquee bgcolor="#89CFF0" height="30px"> ALL RENTALS 50% OFF!!! BUY NOW!!! </marquee>
+
+			<br>
+
+			<h1 class="fade-in">Calendar</h1>
+
+			<div class="content-wrapper">
+
+				<div class="booked-dates">
+					<h2>🚚 Already Booked</h2>
+					<table>
+						<tr>
+							<td>Mar 1, 2025</td>
+							<td>Birthday Party</td>
+							<td>Markham Park, Sunrise</td>
+							<td><span class="booked-tag">Booked</span></td>
+						</tr>
+						<tr>
+							<td>Mar 7, 2025</td>
+							<td>School Fair</td>
+							<td>Cypress Bay High School, Weston</td>
+							<td><span class="booked-tag">Booked</span></td>
+						</tr>
+						<tr>
+							<td>Mar 14, 2025</td>
+							<td>Community Event</td>
+							<td>Las Olas Blvd, Fort Lauderdale</td>
+							<td><span class="booked-tag">Booked</span></td>
+						</tr>
+						<tr>
+							<td>Mar 21, 2025</td>
+							<td>Private Party</td>
+							<td>Tradewinds Park, Coconut Creek</td>
+							<td><span class="booked-tag">Booked</span></td>
+						</tr>
+						<tr>
+							<td>Mar 28, 2025</td>
+							<td>Food Festival</td>
+							<td>Pembroke Lakes Mall, Pembroke Pines</td>
+							<td><span class="booked-tag">Booked</span></td>
+						</tr>
+						<tr>
+							<td>Apr 4, 2025</td>
+							<td>Wedding Reception</td>
+							<td>Flamingo Gardens, Davie</td>
+							<td><span class="booked-tag">Booked</span></td>
+						</tr>
+						<tr>
+							<td>Apr 12, 2025</td>
+							<td>Graduation Party</td>
+							<td>CB Smith Park, Pembroke Pines</td>
+							<td><span class="booked-tag">Booked</span></td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="booking-form">
+					<h2>📅 Request a Date</h2>
+					<form action="#">
+
+						<div>
+							<label for="name">Full Name</label>
+							<input type="text" id="name" name="name" placeholder="Walter White" required>
+						</div>
+
+						<div>
+							<label for="email">Email Address</label>
+							<input type="email" id="email" name="email" placeholder="example@email.com" required>
+						</div>
+
+						<div>
+							<label for="phone">Phone Number</label>
+							<input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+						</div>
+
+						<div>
+							<label for="date">Requested Date</label>
+							<input type="date" id="date" name="date" required>
+						</div>
+
+						<div>
+							<label for="event">Type of Event</label>
+							<select id="event" name="event">
+								<option value="">-- Select Event Type --</option>
+								<option value="birthday">Birthday Party</option>
+								<option value="wedding">Wedding</option>
+								<option value="school">School Event</option>
+								<option value="community">Community Event</option>
+								<option value="corporate">Corporate Event</option>
+								<option value="other">Other</option>
+							</select>
+						</div>
+
+						<div>
+							<label for="location">Event Location</label>
+							<input type="text" id="location" name="location" placeholder="Address or venue name">
+						</div>
+
+						<div>
+							<label for="notes">Additional Notes</label>
+							<textarea id="notes" name="notes" placeholder="Any special requests or details..."></textarea>
+						</div>
+
+						<button type="submit" class="submit-btn">Submit Request</button>
+
+					</form>
+				</div>
+
+			</div>
+
+		</main>
+
+		<footer>
+			<div id="smcontainer">
+				<a href="#" id="icons"><img src="images/youtube.png" id="sm"></a>
+			</div>
+			<div id="smcontainer">
+				<a href="#" id="icons"><img src="images/x.png" id="sm"></a>
+			</div>
+			<div id="smcontainer">
+				<a href="#" id="icons"><img src="images/instagram.png" id="sm"></a>
+			</div>
+			<div id="smcontainer">
+				<a href="#" id="icons"><img src="images/snap.png" id="sm"></a>
+			</div>
+			<div id="smcontainer">
+				<a href="#" id="icons"><img src="images/tiktok.png" id="sm"></a>
+			</div>
+			<div id="legallinks">
+				<a href="#" id="legal">Terms of Use&nbsp;&nbsp;|</a>&nbsp;
+				<a href="#" id="legal">&nbsp;&nbsp;Privacy Notice &nbsp; |</a>&nbsp;
+				<a href="#" id="legal">&nbsp;&nbsp;Accessibility</a>&nbsp;
+			</div>
+		</footer>
+
+	</body>
+</html>
